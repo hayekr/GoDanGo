@@ -183,7 +183,7 @@ def twitch():
     	set_left_speed(45)
     	while bwd() == 0:
     		print "Can't seem to back up properly."
-    	time.sleep(.05)
+    	time.sleep(.2)
     	while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         	print "Having trouble stopping"
         	time.sleep(.1)
@@ -195,6 +195,8 @@ def twitch():
     		print "can't turn my right light off"
     	while led_off(LED_L) == 0: 
     		print "can't turn my left light off"
+    	led_off(LED_R)
+    	led_off(LED_L)
 
 
 
