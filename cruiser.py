@@ -180,13 +180,15 @@ def twitch():
 	servo(30)
     	servo(110)
 	set_right_speed(55)
-    	set_left_speed(55)
+    	set_left_speed(45)
     	while bwd() == 0:
     		print "Can't seem to back up properly."
     	time.sleep(.05)
     	while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         	print "Having trouble stopping"
         	time.sleep(.1)
+        stop()
+        stop()
     	servo(30)
     	servo(110)
     	while led_off(LED_R) == 0:
