@@ -196,7 +196,7 @@ def twitch():
 ################################
 
 while True:
-	casualScan():
+	casualScan()
 
 
 
