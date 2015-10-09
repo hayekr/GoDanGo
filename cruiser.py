@@ -176,17 +176,23 @@ def twitch():
 	print "Twitching!"
 	led_on(LED_R)
 	led_on(LED_L)
-	set_right_speed(10)
-    	set_left_speed(10)
-    	bwd()
+	time.sleep(.5)
+	servo(30)
+    	servo(110)
+	set_right_speed(20)
+    	set_left_speed(20)
+    	while bwd() == 0:
+    		print "Can't seem to back up properly."
     	time.sleep(.05)
     	while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         	print "Having trouble stopping"
         	time.sleep(.1)
     	servo(30)
     	servo(110)
-    	led_off(LED_R)
-    	led_off(LED_L)
+    	while led_off(LED_R) == 0:
+    		print "can't turn my right light off"
+    	while led_off(LED_L) == 0: 
+    		print "can't turn my left light off"
 
 
 
