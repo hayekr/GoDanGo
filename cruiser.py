@@ -158,7 +158,7 @@ def letsroll():
 ################################
 
 def casualScan():
-    while stop() == None:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
+    while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         print "Having trouble stopping"
         time.sleep(.5)
     for ang in range(10, 160, 1): #wide scan, skipping all the odd numbers to move quicker
@@ -179,7 +179,7 @@ def twitch():
     set_left_speed(10)
     bwd()
     time.sleep(.1)
-    while stop() == None:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
+    while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         print "Having trouble stopping"
         time.sleep(.5)
     servo(30)
