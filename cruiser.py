@@ -161,9 +161,9 @@ def casualScan():
     while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         print "Having trouble stopping"
         time.sleep(.5)
-    for ang in range(10, 160, 1): #wide scan, skipping all the odd numbers to move quicker
+    for ang in range(10, 160, 2): #wide scan, skipping all the odd numbers to move quicker
         servo(ang)  #move the servo to the angle in the loop
-        time.sleep(.5) #pause between scans seems to get better results (has to be before the sensor is activated)
+        time.sleep(.1) #pause between scans seems to get better results (has to be before the sensor is activated)
         sweep[ang] = us_dist(15) #note the distance at each angle
         print "[Angle:", ang, "--", sweep[ang], "cm]"
         if sweep[ang] < 20:
