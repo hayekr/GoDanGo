@@ -161,16 +161,17 @@ def casualScan():
     while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         print "Having trouble stopping"
         time.sleep(.5)
-    for ang in range(10, 160, 2): #wide scan, skipping all the odd numbers to move quicker
+    for ang in range(10, 160, 5): #wide scan, skipping all the odd numbers to move quicker
         servo(ang)  #move the servo to the angle in the loop
         time.sleep(.1) #pause between scans seems to get better results (has to be before the sensor is activated)
         sweep[ang] = us_dist(15) #note the distance at each angle
         print "[Angle:", ang, "--", sweep[ang], "cm]"
         if sweep[ang] < 20:
-            time.sleep(.5)
+            time.sleep(.1)
             sweep[ang] = us_dist(15) #let's confirm
-            if sweep[ang] < 20:
-                break
+            if sweep[ang] < 50:
+                return True
+    return False
 
 def twitch():
     led_on(LED_R)
@@ -178,10 +179,10 @@ def twitch():
     set_right_speed(10)
     set_left_speed(10)
     bwd()
-    time.sleep(.1)
+    time.sleep(.05)
     while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
         print "Having trouble stopping"
-        time.sleep(.5)
+        time.sleep(.1)
     servo(30)
     servo(110)
     led_off(LED_R)
@@ -195,7 +196,7 @@ def twitch():
 ################################
 
 while True:
-    casualScan()
-    twitch()
+    if casualScan():
+    	twitch()
 
 
