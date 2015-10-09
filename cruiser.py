@@ -170,23 +170,23 @@ def casualScan():
             time.sleep(.1)
             sweep[ang] = us_dist(15) #let's confirm
             if sweep[ang] < 50:
-                return True
-    return False
+                twitch()
 
 def twitch():
-    led_on(LED_R)
-    led_on(LED_L)
-    set_right_speed(10)
-    set_left_speed(10)
-    bwd()
-    time.sleep(.05)
-    while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
-        print "Having trouble stopping"
-        time.sleep(.1)
-    servo(30)
-    servo(110)
-    led_off(LED_R)
-    led_off(LED_L)
+	print "Twitching!"
+	led_on(LED_R)
+	led_on(LED_L)
+	set_right_speed(10)
+    	set_left_speed(10)
+    	bwd()
+    	time.sleep(.05)
+    	while stop() == 0:  #bot sometimes doesn't stop, so I loop the command until it returns a 1 for completed
+        	print "Having trouble stopping"
+        	time.sleep(.1)
+    	servo(30)
+    	servo(110)
+    	led_off(LED_R)
+    	led_off(LED_L)
 
 
 
@@ -196,7 +196,7 @@ def twitch():
 ################################
 
 while True:
-    if casualScan():
-    	twitch()
+	casualScan():
+
 
 
