@@ -179,8 +179,8 @@ def twitch():
 	time.sleep(.5)
 	servo(30)
     	servo(110)
-	set_right_speed(55)
-    	set_left_speed(45)
+	set_right_speed(85)
+    	set_left_speed(65)
     	while bwd() == 0:
     		print "Can't seem to back up properly."
     	time.sleep(.2)
